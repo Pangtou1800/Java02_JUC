@@ -197,6 +197,24 @@
 
 ---
 
+## 线程的生命周期
+
+### Java语言Thread类及其子类的五种状态：
+
+    新建、就绪、运行、阻塞、死亡
+
+                ·resume() ※已过时   ·suspend()方法 ※已过时
+                ·notify(All)()方法   ·wait()方法
+                ·获取同步锁          ·等待同步锁
+                ·join()结束          ·a中b.join() => a阻塞
+                ·sleep()时间到       ·sleep()方法
+                      -------阻塞 <------ 
+                      |                 |
+           start()    ↓  获取CPU执行权   |          ·run()执行结束
+    新建 ----------> 就绪 --------------> 运行 -------------------------> 死亡
+                        <--------------             ·调用stop()
+                         ·失去CPU执行权         ·出现error/exception，
+                           ·yield()                   且没有处理
 # Java JUC
 
     JUC: java.util.concurrent
